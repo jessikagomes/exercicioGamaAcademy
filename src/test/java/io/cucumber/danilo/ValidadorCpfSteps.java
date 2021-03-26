@@ -2,16 +2,10 @@ package io.cucumber.danilo;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By.ByName;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.net.Urls;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.openqa.selenium.By;
-
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -24,10 +18,9 @@ public class ValidadorCpfSteps {
 	}
 
 	public WebDriver browser;
-	//String siteacademy, sitecurso;
 
-	@Dado("que eu estou no site da gama academy {string}")
-	public void que_eu_estou_no_site_da_gama_academy(String siteacademy) {
+	@Dado("que eu estou no homepage da gama academy {string}")
+	public void que_eu_estou_no_homepage_da_gama_academy(String siteacademy) {
 		browser.get(siteacademy);
 	}
 
@@ -44,8 +37,8 @@ public class ValidadorCpfSteps {
 		browser.quit();
 	}
 
-	@Dado("que eu estou no site da gama academy {}")
-	public void que_eu_estou_no_site_da_gama_academy(String sitecurso) {
+	@Dado("que eu estou na pagina do curso da gama academy {string}")
+	public void que_eu_estou_na_pagina_do_curso_da_gama_academy(String sitecurso) {
 		browser.get(sitecurso);
 	}
 
@@ -59,8 +52,7 @@ public class ValidadorCpfSteps {
 	public void devo_ver_o_valor_e_o_botao_comprar_agora() {
 		browser.get("https://pages.gama.academy/curso-de-product-management/");
 		WebElement valorbotao = browser.findElement(By.id("lp-pom-box-882"));
-		valorbotao.getText().contains("ABOBORA");
-		valorbotao.getText().contains("1529");
+		assertNotNull(valorbotao);
 		browser.close();
 	}
 

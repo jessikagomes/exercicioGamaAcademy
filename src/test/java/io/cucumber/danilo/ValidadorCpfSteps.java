@@ -2,10 +2,12 @@ package io.cucumber.danilo;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByName;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.net.Urls;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.openqa.selenium.By;
@@ -55,38 +57,11 @@ public class ValidadorCpfSteps {
 
 	@Entao("devo ver o valor e o botao comprar agora")
 	public void devo_ver_o_valor_e_o_botao_comprar_agora() {
-		String valorEsperado, botaoComprarEsperado;
-		valorEsperado = "R$ 1.529,00";
-		botaoComprarEsperado = "Próximo passo";
-		WebElement botaoProximoPasso = browser.findElement(By.id("button#saveUserData"));
-		WebElement valorHotmart = browser.findElement(By.cssSelector("span[class='product-part product-price--single']"));
-		assertEquals(valorEsperado, valorHotmart.getText());
-		assertEquals(botaoComprarEsperado, botaoProximoPasso.getText());
-		browser.quit();
-		/*
-		 * String botaoQueroMeMatricular = "QUERO ME MATRICULAR"; WebElement
-		 * identificandoSiteGama =
-		 * browser.findElement(By.xpath("//*[@id='lp-pom-button-849']")); WebElement
-		 * identificandoSiteHotmart =
-		 * browser.findElement(By.xpath("//*[@id='__layout']"));
-		 * browser.get("https://pages.gama.academy/curso-de-product-management/");
-		 * 
-		 * 
-		 * if () { WebElement valorHotmart =
-		 * browser.findElement(By.cssSelector(".product-price")); WebElement
-		 * botaoProximoPasso = browser.findElement(By.cssSelector("saveUserData"));
-		 * assertEquals(valorEsperado, valorHotmart.getText());
-		 * assertEquals(botaoComprarEsperado, botaoProximoPasso.getText());
-		 * browser.quit();
-		 * 
-		 * } else if (browser) { WebElement valor = browser.findElement(By.
-		 * cssSelector("div:nth-of-type(90) > div:nth-of-type(2) > p > span > span > span > span"
-		 * )); WebElement matricular =
-		 * browser.findElement(By.cssSelector("a[id='lp-pom-button-883']"));
-		 * assertEquals(valorEsperado, valor.getText());
-		 * assertEquals(botaoQueroMeMatricular, matricular.getText()); browser.quit(); }
-		 */
-
+		browser.get("https://pages.gama.academy/curso-de-product-management/");
+		WebElement valorbotao = browser.findElement(By.id("lp-pom-box-882"));
+		valorbotao.getText().contains("ABOBORA");
+		valorbotao.getText().contains("1529");
+		browser.close();
 	}
 
 }
